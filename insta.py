@@ -1,21 +1,25 @@
 from PIL import Image
+
 print('Hello!')
 print('Which filter do you want to use?')
-choice =  int(input("1.green/ 2.inverse 3.pink 4.red 5. blue 6.cyberpunk"))
+choice = input("1. Green\n2. Inverse\n3. Pink\n4. Red\n5. Blue\n6. Cyberpunk\nEnter your choice: ")
+
 obrazek = Image.open("dog.jpg")
 sirka, vyska = obrazek.size
-x = 0
+
 if choice == "1":
+    x = 0
     while x < sirka:
         y = 0
         while y < vyska:
-            r, g, b = obrazek.getpixel((x,y))
-            prumer = int((r+g+b)/3)
-            obrazek.putpixel((x,y),(g, r, b))
+            r, g, b = obrazek.getpixel((x, y))
+            prumer = int((r + g + b) / 3)
+            obrazek.putpixel((x, y), (g, r, b))
             y += 1
         x += 1
-    obrazek.save("modified_dog.jpg")    
-    obrazek.show()
+    obrazek.save("modified_dog.jpg")
+    obrazek_modified = Image.open("modified_dog.jpg")
+    obrazek_modified.show()
 
 #r,r,r
 #r , b, r
